@@ -1,0 +1,7 @@
+{
+    "name": "redux-reducer-injector/components",
+    "private": true,
+    "main": "../lib/components/index.js",
+    "module": "../es/components/index.js",
+    "jsnext:main": "../es/components/index.js"
+}

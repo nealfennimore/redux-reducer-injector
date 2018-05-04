@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reducer nestAsyncReducers should nest reducers based on key 1`] = `
+Object {
+  "a": Object {
+    "b1": Object {
+      "B1": "B1",
+    },
+    "b2": Object {
+      "B2": "B2",
+    },
+  },
+  "initialReducer": Object {},
+}
+`;
+
+exports[`reducer nestAsyncReducers should nest reducers based on key 2`] = `
+Object {
+  "a": Object {
+    "b1": Object {
+      "B1": "B1",
+    },
+    "b2": Object {
+      "B2": "B2",
+    },
+    "b3": Object {
+      "B3": "B3",
+    },
+    "b4": Object {
+      "c1": Object {
+        "C1": "C1",
+      },
+    },
+  },
+  "initialReducer": Object {},
+}
+`;
+
+exports[`reducer nestAsyncReducers should nest reducers based on key 3`] = `
+Object {
+  "a": Object {
+    "b1": Object {
+      "B1": "B1",
+    },
+    "b2": Object {
+      "B2": "B2",
+    },
+    "b3": Object {
+      "B3": "B3",
+    },
+    "b4": Object {
+      "c1": Object {
+        "C1": "C1",
+      },
+      "c2": Object {
+        "d1": Object {
+          "D1": "D1",
+        },
+      },
+    },
+  },
+  "initialReducer": Object {},
+}
+`;
+
+exports[`reducer nestAsyncReducers should nest reducers based on key 4`] = `
+Array [
+  Array [
+    Object {
+      "a.b1": [Function],
+    },
+  ],
+  Array [
+    Object {
+      "a.b2": [Function],
+    },
+  ],
+  Array [
+    Object {
+      "a.b3": [Function],
+    },
+  ],
+  Array [
+    Object {
+      "a.b4.c1": [Function],
+    },
+  ],
+  Array [
+    Object {
+      "a.b4.c2.d1": [Function],
+    },
+  ],
+]
+`;
+
+exports[`reducer utils mergeReducers 1`] = `
+Object {
+  "a": [Function],
+  "b": [Function],
+}
+`;
+
+exports[`reducer utils mergeReducers 2`] = `
+Object {
+  "a": [Function],
+  "b": [Function],
+}
+`;

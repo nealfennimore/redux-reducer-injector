@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReducerInjector lifecycle should inject only usable reducers on mount 1`] = `Object {}`;
+
+exports[`ReducerInjector lifecycle should inject only usable reducers on mount 2`] = `
+Array [
+  Array [
+    Object {
+      "r2": [Function],
+      "r3": [Function],
+    },
+  ],
+]
+`;
+
+exports[`ReducerInjector lifecycle should inject reducers on mount 1`] = `Object {}`;
+
+exports[`ReducerInjector lifecycle should inject reducers on mount 2`] = `
+Array [
+  Array [
+    Object {
+      "r1": [Function],
+      "r2": [Function],
+      "r3": [Function],
+    },
+  ],
+]
+`;
+
+exports[`ReducerInjector lifecycle should not inject when no reducers 1`] = `Object {}`;
+
+exports[`ReducerInjector should match snapshot 1`] = `"test"`;
