@@ -1,5 +1,5 @@
 {
-  "name": "@nealfennimore/redux-reducer-injector",
+  "name": "@nfen/redux-reducer-injector",
   "version": "0.0.1",
   "description": "Redux utils for injecting reducers",
   "main": "lib/index.js",
