@@ -5,7 +5,7 @@ export function augmentStore( createReducer, store ) {
     store.injectedReducers = {};
     store.injectReducers = function injectReducers( reducers ) {
         Object.entries( reducers ).forEach( ( [ key, reducer ] ) =>{
-            if ( ! has( store, key ) ) {
+            if ( ! has( store.injectedReducers, key ) ) {
                 set( store.injectedReducers, key, reducer );
                 store.replaceReducer( createReducer( store.injectedReducers ) );
             }

@@ -25,9 +25,9 @@ function ReducerInjectorHOC( options, WrappedComponent ) {
             [ STORE_KEY ]: PropTypes.object
         }
 
-        reducers = reducers
-
-        componentWillMount() {
+        constructor( ...args ) {
+            super( ...args );
+            this.reducers = reducers;
             this.injectReducers();
         }
 
