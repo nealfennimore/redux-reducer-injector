@@ -58,3 +58,23 @@ const injector = ReducerInjector({
 
 export default injector( MyComponent );
 ```
+
+### Use HOC with react-saga-injector
+
+By utilizing our [sister package](https://github.com/nealfennimore/redux-saga-injector), you can dynamically inject reducers and sagas on the fly.
+
+```js
+import { compose } from 'redux';
+import { SagaInjector } from '@nfen/redux-saga-injector/components';
+import { ReducerInjector } from '@nfen/redux-reducer-injector/components';
+import MyComponent from './MyComponent';
+import * as saga from './sagas';
+import * as reducers from './reducers';
+
+const injector = (options) => compose(
+    SagaInjector(options),
+    ReducerInjector(options),
+);
+
+export default injector( MyComponent );
+```
