@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import merge from 'deepmerge';
-import { curry, pipe } from './utils/fp';
+import { pipe } from './utils/fp';
 
 export const isFunction = arg => typeof arg === 'function';
 export const isObject = arg => arg !== null && typeof arg === 'object';
