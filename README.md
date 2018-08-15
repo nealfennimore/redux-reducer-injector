@@ -37,6 +37,7 @@ With the store augmented with our new methods, we can inject reducers directly o
 store.injectReducers({
     one: oneReducer,
     two: twoReducer,
+    'a.b.c': reducers.nested,
 });
 ```
 
@@ -53,6 +54,7 @@ const injector = ReducerInjector({
     reducers: {
       'one': reducers.one,
       'two': reducers.two,
+      'a.b.c': reducers.nested,
     }
 });
 
