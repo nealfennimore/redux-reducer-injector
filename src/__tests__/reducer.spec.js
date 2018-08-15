@@ -20,7 +20,7 @@ describe( 'reducer', ()=>{
     let store, createReducer, spy;
 
     beforeEach( () => {
-        createReducer = utils.createReducer( {
+        createReducer = setupCreateReducer( {
             initialReducer: reducerFactory()
         } );
         store = storeFactory( createReducer );
@@ -30,7 +30,8 @@ describe( 'reducer', ()=>{
         test( 'should setup with initial reducers', ()=>{
             const test = jest.fn();
             expect( setupCreateReducer( {test} ) ).toBeInstanceOf( Function );
-            expect( setupCreateReducer( {test}, {test} ) ).toBeInstanceOf( Function );
+            expect( setupCreateReducer( {test} )( {test} ) ).toBeInstanceOf( Function );
+            expect( setupCreateReducer()() ).toBeInstanceOf( Function );
         } );
     } );
 

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import merge from 'deepmerge';
-import { curry, pipe } from './utils/fp';
+import { pipe } from './utils/fp';
 
 export const isFunction = arg => typeof arg === 'function';
 export const isObject = arg => arg !== null && typeof arg === 'object';
@@ -69,23 +69,6 @@ export function getReducersAtLevel( asyncReducers ) {
 }
 
 /**
- * Create a combined reducer
- *
- * @param {Object} [initialReducers={}]
- * @param {Object} [asyncReducers={}]
- * @returns combined reducer
- */
-function _createReducer( initialReducers, asyncReducers ) {
-    return combineReducers( {
-        ...initialReducers,
-        ...nestAsyncReducers( asyncReducers )
-    } );
-}
-
-
-export const createReducer = curry( _createReducer );
-
-/**
  *  Setup createReducer with initial reducers
  *  Will return a new function that will take async reducers to be injected
  *
@@ -93,6 +76,11 @@ export const createReducer = curry( _createReducer );
  * @param {Object} initialReducers
  * @returns Function
  */
-export default function setupCreateReducer( initialReducers ) {
-    return createReducer( initialReducers );
+export default function createReducer( initialReducers = {} ) {
+    return function _createReducerAsync( asyncReducers = {} ) {
+        return combineReducers( {
+            ...initialReducers,
+            ...nestAsyncReducers( asyncReducers )
+        } );
+    };
 }

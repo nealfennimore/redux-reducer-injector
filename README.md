@@ -20,7 +20,7 @@ First, update the store with the augmentStore function like so. This will augmen
 
 ```js
 import { createStore, applyMiddleware } from 'redux';
-import { setupCreateReducer, augmentStore } from '@nfen/reduc-reducer-injector';
+import { setupCreateReducer, augmentStore } from '@nfen/redux-reducer-injector';
 import permanentReducers from './reducers';
 
 const createReducer = setupCreateReducer(permanentReducers);
