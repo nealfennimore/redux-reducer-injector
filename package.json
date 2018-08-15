@@ -1,6 +1,6 @@
 {
   "name": "@nfen/redux-reducer-injector",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Redux utils for injecting reducers",
   "main": "lib/index.js",
   "module": "es/index.js",
