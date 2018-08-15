@@ -29,7 +29,11 @@
     "type": "git",
     "url": "https://github.com/nealfennimore/redux-reducer-injector.git"
   },
-  "keywords": [],
+  "keywords": [
+    "redux",
+    "redux injection",
+    "redux injector"
+  ],
   "author": "Neal Fennimore",
   "license": "Fair Source License, version 0.9",
   "dependencies": {
