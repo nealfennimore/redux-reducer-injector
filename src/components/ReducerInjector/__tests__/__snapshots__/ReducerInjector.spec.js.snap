@@ -6,8 +6,8 @@ exports[`ReducerInjector lifecycle should inject only usable reducers on mount 2
 Array [
   Array [
     Object {
-      "r2": [Function],
-      "r3": [Function],
+      "r2": [MockFunction],
+      "r3": [MockFunction],
     },
   ],
 ]
@@ -19,9 +19,9 @@ exports[`ReducerInjector lifecycle should inject reducers on mount 2`] = `
 Array [
   Array [
     Object {
-      "r1": [Function],
-      "r2": [Function],
-      "r3": [Function],
+      "r1": [MockFunction],
+      "r2": [MockFunction],
+      "r3": [MockFunction],
     },
   ],
 ]
