@@ -95,14 +95,14 @@ Array [
 
 exports[`reducer utils mergeReducers 1`] = `
 Object {
-  "a": [Function],
-  "b": [Function],
+  "a": [MockFunction],
+  "b": [MockFunction],
 }
 `;
 
 exports[`reducer utils mergeReducers 2`] = `
 Object {
-  "a": [Function],
-  "b": [Function],
+  "a": [MockFunction],
+  "b": [MockFunction],
 }
 `;
