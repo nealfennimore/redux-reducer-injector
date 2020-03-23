@@ -61,6 +61,30 @@ const injector = ReducerInjector({
 export default injector( MyComponent );
 ```
 
+### React-Redux 6+ Example
+
+To utilize with react-redux 6+ you need to pass in store as a prop.
+
+```js
+import { useStore } from 'react-redux';
+import { ReducerInjector } from '@nfen/redux-reducer-injector/components';
+import MyComponent from './MyComponent';
+import * as reducers from './reducers';
+
+function InjectorWrapper( reducers, WrappedComponent) {
+    const store = useStore();
+    const injector = ReducerInjector({
+        reducers,
+    });
+
+    return ( props ) => injector(
+        <WrappedComponent store={store} {...props} />
+    );
+}
+
+export default InjectorWrapper( reducers, MyComponent );
+```
+
 ### Use HOC with react-saga-injector
 
 By utilizing our [sister package](https://github.com/nealfennimore/redux-saga-injector), you can dynamically inject reducers and sagas on the fly.
