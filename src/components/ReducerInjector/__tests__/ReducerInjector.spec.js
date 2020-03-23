@@ -46,7 +46,7 @@ describe( 'ReducerInjector', ()=>{
             expect( component.instance().store ).toEqual( store );
             expect( component.instance().reducers ).toEqual( reducers );
             expect( component.instance().hasReducers ).toEqual( true );
-            expect( component.instance().usableReducers ).toMatchSnapshot();
+            expect( component.instance().injectableReducers ).toMatchSnapshot();
 
             expect( spy.mock.calls ).toMatchSnapshot();
         } );
@@ -59,7 +59,7 @@ describe( 'ReducerInjector', ()=>{
             expect( component.instance().store ).toEqual( store );
             expect( component.instance().reducers ).toEqual( reducers );
             expect( component.instance().hasReducers ).toEqual( true );
-            expect( component.instance().usableReducers ).toMatchSnapshot();
+            expect( component.instance().injectableReducers ).toMatchSnapshot();
 
             expect( spy.mock.calls ).toMatchSnapshot();
         } );
@@ -72,7 +72,7 @@ describe( 'ReducerInjector', ()=>{
             expect( component.instance().store ).toEqual( store );
             expect( component.instance().reducers ).toEqual( {} );
             expect( component.instance().hasReducers ).toEqual( false );
-            expect( component.instance().usableReducers ).toMatchSnapshot();
+            expect( component.instance().injectableReducers ).toMatchSnapshot();
             expect( spy ).not.toBeCalled();
         } );
     } );
