@@ -10,7 +10,7 @@ import { curry } from 'src/utils/fp';
  * @returns ReducerInjector
  */
 function ReducerInjectorHOC( options, WrappedComponent ) {
-    const { reducers, STORE_KEY } = Object.assign( { reducers: {}, STORE_KEY: 'store' }, options );
+    const { reducers, STORE_KEY } = { reducers: {}, STORE_KEY: 'store', ...options };
 
     const componentName = WrappedComponent.displayName ||
 	WrappedComponent.name ||
@@ -22,6 +22,9 @@ function ReducerInjectorHOC( options, WrappedComponent ) {
             [ STORE_KEY ]: PropTypes.object // eslint-disable-line
         }
         static contextTypes = {
+            /**
+             * @deprecated since react-redux v6.0.0
+             */
             [ STORE_KEY ]: PropTypes.object
         }
 
@@ -31,33 +34,79 @@ function ReducerInjectorHOC( options, WrappedComponent ) {
             this.injectReducers();
         }
 
+        /**
+         * Retrieve the redux store
+         *
+         * @readonly
+         * @memberof ReducerInjector
+         */
         get store() {
-            return this.props[STORE_KEY] || this.context[STORE_KEY];
+            return (
+                this.props[STORE_KEY] ||
+                /**
+                 * @deprecated since react-redux v6.0.0
+                 */
+                this.context[STORE_KEY]
+            );
         }
 
-        get keys() {
+        /**
+         * Retrieve reducer keys
+         *
+         * @readonly
+         * @memberof ReducerInjector
+         * @returns {Array<String>}
+         */
+        get reducerKeys() {
             return Object.keys( this.reducers );
         }
 
-        get usableKeys() {
+        /**
+         * Get keys of reducers that have not yet been injected
+         *
+         * @readonly
+         * @memberof ReducerInjector
+         * @returns {Array<String>}
+         */
+        get injectableKeys() {
             const injectedKeys = Object.keys( this.store.injectedReducers );
-            return this.keys.filter( ( key )=> ! injectedKeys.includes( key ) );
+            return this.reducerKeys.filter( ( key )=> ! injectedKeys.includes( key ) );
         }
 
-        get usableReducers() {
-            return this.usableKeys.reduce( ( result, key )=>{
+        /**
+         * Get reducers that are readu to be injected
+         *
+         * @readonly
+         * @memberof ReducerInjector
+         * @returns {Object}
+         */
+        get injectableReducers() {
+            return this.injectableKeys.reduce( ( result, key )=>{
                 result[key] = this.reducers[key];
                 return result;
             }, {} );
         }
 
+        /**
+         * Determine if we have usable reducers
+         *
+         * @readonly
+         * @memberof ReducerInjector
+         * @returns {boolean}
+         */
         get hasReducers() {
-            return !! this.keys.length;
+            return !! this.reducerKeys.length;
         }
 
+        /**
+         * Injects reducers into store
+         *
+         * @memberof ReducerInjector
+         * @returns void
+         */
         injectReducers() {
             if ( this.hasReducers ) {
-                this.store.injectReducers( this.usableReducers );
+                this.store.injectReducers( this.injectableReducers );
             }
         }
 
